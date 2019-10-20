@@ -25,7 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("user")
-public class UserController extends BaseController<UserBiz,User> {
+public class UserController extends BaseController<UserBiz, User> {
     @Autowired
     private PermissionService permissionService;
 
@@ -36,7 +36,7 @@ public class UserController extends BaseController<UserBiz,User> {
     @ResponseBody
     public ResponseEntity<?> getUserInfo(String token) throws Exception {
         FrontUser userInfo = permissionService.getUserInfo(token);
-        if(userInfo==null) {
+        if (userInfo == null) {
             return ResponseEntity.status(401).body(false);
         } else {
             return ResponseEntity.ok(userInfo);
