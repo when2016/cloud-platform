@@ -58,7 +58,7 @@ spring:
           - StripPrefix=2
      nacos:
         discovery:
-          server-addr: 127.0.0.1:8848
+          server-addr: 39.97.239.220:8848
   sentinel:
     transport:
       dashboard: localhost:8080
