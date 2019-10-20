@@ -101,7 +101,7 @@ client:
 
 logging:
   level:
-#        tk.mybatis: DEBUG
+    #        tk.mybatis: DEBUG
     com.github.wxiaoqi.security.auth: DEBUG
 
 management:
