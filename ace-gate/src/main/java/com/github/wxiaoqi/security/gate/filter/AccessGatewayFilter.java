@@ -11,10 +11,10 @@ import com.github.wxiaoqi.security.auth.common.util.jwt.IJWTInfo;
 import com.github.wxiaoqi.security.common.context.BaseContextHandler;
 import com.github.wxiaoqi.security.common.msg.BaseResponse;
 import com.github.wxiaoqi.security.common.msg.auth.TokenForbiddenResponse;
-import com.github.wxiaoqi.security.gate.handler.RequestBodyRoutePredicateFactory;
-import com.github.wxiaoqi.security.gate.utils.DBLog;
 import com.github.wxiaoqi.security.gate.feign.ILogService;
 import com.github.wxiaoqi.security.gate.feign.IUserService;
+import com.github.wxiaoqi.security.gate.handler.RequestBodyRoutePredicateFactory;
+import com.github.wxiaoqi.security.gate.utils.DBLog;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -85,9 +85,9 @@ public class AccessGatewayFilter implements GlobalFilter {
         String requestUri = request.getPath().pathWithinApplication().value();
         if (requiredAttribute != null) {
             Iterator<URI> iterator = requiredAttribute.iterator();
-            while (iterator.hasNext()){
+            while (iterator.hasNext()) {
                 URI next = iterator.next();
-                if(next.getPath().startsWith(GATE_WAY_PREFIX)){
+                if (next.getPath().startsWith(GATE_WAY_PREFIX)) {
                     requestUri = next.getPath().substring(GATE_WAY_PREFIX.length());
                 }
             }

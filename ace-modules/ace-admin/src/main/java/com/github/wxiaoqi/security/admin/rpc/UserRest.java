@@ -22,22 +22,24 @@ public class UserRest {
     @Autowired
     private PermissionService permissionService;
 
-    @Cache(key="permission")
+    @Cache(key = "permission")
     @RequestMapping(value = "/permissions", method = RequestMethod.GET)
     public @ResponseBody
-    List<PermissionInfo> getAllPermission(){
+    List<PermissionInfo> getAllPermission() {
         return permissionService.getAllPermission();
     }
 
-    @Cache(key="permission:u{1}")
+    @Cache(key = "permission:u{1}")
     @RequestMapping(value = "/user/un/{username}/permissions", method = RequestMethod.GET)
-    public @ResponseBody List<PermissionInfo> getPermissionByUsername(@PathVariable("username") String username){
+    public @ResponseBody
+    List<PermissionInfo> getPermissionByUsername(@PathVariable("username") String username) {
         return permissionService.getPermissionByUsername(username);
     }
 
     @RequestMapping(value = "/user/validate", method = RequestMethod.POST)
-    public @ResponseBody UserInfo validate(@RequestBody Map<String,String> body){
-        return permissionService.validate(body.get("username"),body.get("password"));
+    public @ResponseBody
+    UserInfo validate(@RequestBody Map<String, String> body) {
+        return permissionService.validate(body.get("username"), body.get("password"));
     }
 
 
