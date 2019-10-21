@@ -15,6 +15,7 @@ public class UserInfo implements Serializable{
     public String password;
     public String name;
     private String description;
+    private Date updTime;
 
     public Date getUpdTime() {
         return updTime;
@@ -23,8 +24,6 @@ public class UserInfo implements Serializable{
     public void setUpdTime(Date updTime) {
         this.updTime = updTime;
     }
-
-    private Date updTime;
 
     public String getId() {
         return id;
